@@ -9,35 +9,35 @@
 
 | Check | Standard | Result |
 |---|---|---|
-| C1 Coverage | At least 90% of close-calendar tasks mapped, for corporate and the acquired business separately | FAIL |
-| C2 Complete steps | Every step has an owner, a system, start and end day, and hands-on hours | FAIL |
-| C3 Timing vs calendar | No step ends after its task's due day unless the map says why | FAIL |
-| C4 Steps tie to the calendar | Every step belongs to a task on the close calendar | FAIL |
-| C5 Map confirmed before ranking | The close manager confirmed the map before fixes were ranked | FAIL |
-| C6 Fixes trace to the map | Every fix points only at steps that exist in the map | FAIL |
-| C7 Savings fit the map | Hours saved per close never exceed the hands-on hours of the steps a fix touches | FAIL |
-| C8 Fixes are owned and sized | Every fix has an owner and an effort size (S, M or L) | FAIL |
+| Every part of the close is mapped | At least 90% of the close calendar's tasks are in the map, for corporate and the acquired business separately | FAIL |
+| Every step is filled in | Each step has an owner, a system, start and end days, and hands-on hours | FAIL |
+| Steps finish on time | No step finishes after its task is due, unless the map explains why | FAIL |
+| Every step matches the calendar | Each step belongs to a task on the close calendar | FAIL |
+| Close manager confirmed the map first | The close manager agreed the map matches how the close really runs before any fixes were ranked | FAIL |
+| Every fix points at real steps | Each fix names only steps that are in the map | FAIL |
+| Savings claims are believable | No fix claims more hours saved than the steps it touches actually take | FAIL |
+| Every fix has an owner and a size | Each fix has an owner and an effort size (small, medium or large) | FAIL |
 
 ## Send back to the partner
 
-- [C1] Acquired business: 10 of 14 tasks mapped (71%). Capture: A05 Usage billing true-up, A06 Inventory count reconciliation, A07 Fixed asset depreciation, A13 Local controller review
-- [C2] S-T06 (Bonus and commission accrual): missing owner role
-- [C2] S-A04 (Payroll accrual): missing system
-- [C3] S-T16 (Balance sheet reconciliations) ends BD5, task due BD4, no reason recorded
-- [C4] S-T99 (Check vendor portal for unbilled usage) points at T99, which is not on the close calendar. Attach it to the task it belongs to
-- [C5] No record that the close manager confirmed the map. Get the walkthrough done before the ranking goes to the controller
-- [C6] F3 (Agent drafts intercompany matches for review) points at S-A99, not in the map
-- [C7] F2 (One accrual template for both units) claims 30 hours saved per close; the steps it touches total 23
-- [C8] F5 (Acquired business sends trial balance as a file, not a PDF): missing owner
+- Every part of the close is mapped: Acquired business: only 10 of 14 close tasks are mapped (71%). Add: Usage billing true-up, Inventory count reconciliation, Fixed asset depreciation, Local controller review
+- Every step is filled in: “Bonus and commission accrual” (Corporate) has no owner listed
+- Every step is filled in: “Payroll accrual” (Acquired business) has no system listed
+- Steps finish on time: “Balance sheet reconciliations” finishes on business day 5, but its task is due on day 4, and the map doesn't say why
+- Every step matches the calendar: “Check vendor portal for unbilled usage” isn't tied to any task on the close calendar. Attach it to the task it belongs to
+- Close manager confirmed the map first: Nothing shows the close manager confirmed the map. Walk them through it before the ranking goes to the controller
+- Every fix points at real steps: “Agent drafts intercompany matches for review” points at a step that isn't in the map. Point it at the right step or drop it
+- Savings claims are believable: “One accrual template for both units” claims 30 hours saved per close, but the steps it touches only take 23 hours
+- Every fix has an owner and a size: “Acquired business sends trial balance as a file, not a PDF” needs an owner
 
-## Fixes ranked by hours saved per unit of effort
+## Fixes, best value for the effort first
 
-| Rank | Fix | Effort | Hours counted / close | Value per year | Note |
+| Rank | Fix | Effort | Hours saved per close | Value per year | Note |
 |---|---|---|---|---|---|
-| 1 | F2 One accrual template for both units | S | 23 | $11,104 | claimed 30, capped at mapped hours |
-| 2 | F1 Auto-match bank lines before reconciliation | M | 12 | $5,793 |  |
-| 3 | F5 Acquired business sends trial balance as a file, not a PDF | S | 6 | $2,897 |  |
-| 4 | F3 Agent drafts intercompany matches for review | M | 10 | $4,828 |  |
-| 5 | F4 Draft flux commentary from prior-month notes | M | 7 | $3,379 |  |
+| 1 | One accrual template for both units | Small | 23 | $11,104 | claimed 30, counted 23 (all the mapped hours) |
+| 2 | Auto-match bank lines before reconciliation | Medium | 12 | $5,793 |  |
+| 3 | Acquired business sends trial balance as a file, not a PDF | Small | 6 | $2,897 |  |
+| 4 | Agent drafts intercompany matches for review | Medium | 10 | $4,828 |  |
+| 5 | Draft flux commentary from prior-month notes | Medium | 7 | $3,379 |  |
 
 Value per year = hours counted x 12 closes x $40.23/hr (BLS median accountant pay, base only). It is team time handed back, not budget saved.

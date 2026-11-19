@@ -27,8 +27,9 @@ class PartnerDraft(unittest.TestCase):
 
     def test_coverage_names_missing_tasks(self):
         msg = self.by["C1"]["issues"][0]
-        for tid in ("A05", "A06", "A07", "A13"):
-            self.assertIn(tid, msg)
+        for task in ("Usage billing true-up", "Inventory count reconciliation",
+                     "Fixed asset depreciation", "Local controller review"):
+            self.assertIn(task, msg)
         self.assertEqual(self.r["coverage"]["Acquired business"]["mapped"], 10)
 
     def test_overclaimed_savings_are_capped(self):

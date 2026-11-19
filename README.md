@@ -4,22 +4,22 @@ Demo page: https://pg2342-hub.github.io/partner-deliverable-qa/
 
 Within co-delivers through consulting partners. The partner's consultants run the discovery sprint for a customer, and Within's delivery lead holds what they produce to Within's standard before it reaches the customer's controller. This tool is that check: the delivery lead runs it on the partner's discovery deliverable for a 30-day month-end close sprint, and partners can run it on their own work before handing it over. It checks the deliverable against the close calendar and answers three questions:
 
-1. **Is it ready for the readout?** Eight checks, all must pass.
+1. **Is it ready for the controller?** Eight checks, all must pass.
 2. **If not, what goes back to the partner?** One specific line per problem, written so the partner can act on it.
 3. **Which fixes come first?** Ranked by hours saved per close per unit of effort, with any savings claim capped at the hands-on hours the map actually shows.
 
 | Check | Standard |
 |---|---|
-| C1 Coverage | At least 90% of close-calendar tasks mapped, for corporate and the acquired business separately |
-| C2 Complete steps | Every step has an owner, a system, start and end day, and hands-on hours |
-| C3 Timing vs calendar | No step ends after its task's due day unless the map says why |
-| C4 Steps tie to the calendar | Every step belongs to a task on the close calendar |
-| C5 Map confirmed before ranking | The close manager confirmed the map before fixes were ranked |
-| C6 Fixes trace to the map | Every fix points only at steps that exist in the map |
-| C7 Savings fit the map | Hours saved per close never exceed the hands-on hours of the steps a fix touches |
-| C8 Fixes are owned and sized | Every fix has an owner and an effort size (S, M or L) |
+| Every part of the close is mapped | At least 90% of the close calendar's tasks are in the map, for corporate and the acquired business separately |
+| Every step is filled in | Each step has an owner, a system, start and end days, and hands-on hours |
+| Steps finish on time | No step finishes after its task is due, unless the map explains why |
+| Every step matches the calendar | Each step belongs to a task on the close calendar |
+| Close manager confirmed the map first | The close manager agreed the map matches how the close really runs before any fixes were ranked |
+| Every fix points at real steps | Each fix names only steps that are in the map |
+| Savings claims are believable | No fix claims more hours saved than the steps it touches actually take |
+| Every fix has an owner and a size | Each fix has an owner and an effort size (small, medium or large) |
 
-C5 is the one I care about most: a ranked list only earns the controller's trust once the people who run the close agree the map matches what they do.
+"Close manager confirmed the map first" is the one I care about most: a ranked list only earns the controller's trust once the people who run the close agree the map matches what they do.
 
 ## Run it
 
