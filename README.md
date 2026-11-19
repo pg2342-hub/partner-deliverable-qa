@@ -2,7 +2,7 @@
 
 Demo page: https://pg2342-hub.github.io/partner-deliverable-qa/
 
-When a consulting partner runs the discovery sprint for a customer, its deliverable should meet the same bar as one the platform team would produce, before it reaches the customer's controller. This tool checks a partner's discovery deliverable for a 30-day month-end close sprint against the close calendar and answers three questions:
+Within co-delivers through consulting partners. The partner's consultants run the discovery sprint for a customer, and Within's delivery lead holds what they produce to Within's standard before it reaches the customer's controller. This tool is that check: the delivery lead runs it on the partner's discovery deliverable for a 30-day month-end close sprint, and partners can run it on their own work before handing it over. It checks the deliverable against the close calendar and answers three questions:
 
 1. **Is it ready for the readout?** Eight checks, all must pass.
 2. **If not, what goes back to the partner?** One specific line per problem, written so the partner can act on it.
