@@ -9,71 +9,92 @@
 <style>
 :root{--fg:#000;--bg:#fff;--muted:#555;--soft:#f2f2f2}
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.45 Inter,Arial,sans-serif}
-main{max-width:1040px;margin:0 auto;padding:28px 16px 60px}
-h1{font-size:26px;margin:0 0 6px}h2{font-size:17px;margin:30px 0 8px}
-p{margin:6px 0}.muted{color:var(--muted)}a{color:#000}
-.btns{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 4px}
-button{font:inherit;font-size:13px;border:1px solid #000;background:#fff;color:#000;padding:6px 12px;cursor:pointer}
+body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.5 Inter,Arial,sans-serif}
+main{max-width:860px;margin:0 auto;padding:28px 16px 60px}
+h1{font-size:26px;margin:0 0 6px}h2{font-size:18px;margin:34px 0 4px}
+p{margin:6px 0}.muted{color:var(--muted)}.small{font-size:13px}a{color:#000}
+ol.how{margin:4px 0 0;padding-left:20px}ol.how li{margin:3px 0}
+.btns{display:flex;flex-wrap:wrap;gap:8px;margin:20px 0 4px}
+button{font:inherit;font-size:14px;border:1px solid #000;background:#fff;color:#000;padding:8px 14px;cursor:pointer}
 button.on,button:hover{background:#000;color:#fff}
-.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px;margin:16px 0}
-.tile{border:1px solid #000;padding:10px 12px}.tile .n{font-size:22px;font-weight:700}.tile .l{font-size:12px;color:var(--muted)}
+.verdict{border:2px solid #000;padding:14px 16px;margin:14px 0 10px}
+.verdict.fail{background:#000;color:#fff}
+.verdict .big{font-size:22px;font-weight:700}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;margin:10px 0}
+.tile{border:1px solid #000;padding:10px 12px}.tile .n{font-size:18px;font-weight:700}.tile .l{font-size:13px;color:var(--muted)}
 .tile.fail{background:#000;color:#fff}.tile.fail .l{color:#ddd}
+.group{margin:12px 0}.group h3{font-size:15px;margin:0 0 2px}
+.group ul{margin:2px 0;padding-left:20px}.group li{margin:3px 0}
+ul.checks{list-style:none;padding:0;margin:8px 0}
+ul.checks li{display:flex;gap:10px;padding:7px 0;border-bottom:1px solid #ddd}
+.mark{flex:0 0 56px;font-weight:700;font-size:13px}
 .wrap{overflow-x:auto;border:1px solid #000}
-table{border-collapse:collapse;width:100%;font-size:13px;min-width:640px}
+table{border-collapse:collapse;width:100%;font-size:13px;min-width:600px}
 th,td{border-bottom:1px solid #ccc;padding:6px 8px;text-align:left;vertical-align:top}
 th{background:var(--soft)}
-td.res{font-weight:700;white-space:nowrap}
-ul.send{padding-left:18px}ul.send li{margin:4px 0}
-details{margin-top:10px}summary{cursor:pointer;font-weight:600}
+details{margin-top:26px}summary{cursor:pointer;font-weight:600}
 footer{margin-top:36px;font-size:13px;color:var(--muted)}
 </style>
 </head>
 <body>
 <main>
 <h1>Partner deliverable QA</h1>
-<p class="muted"><b>Who uses it:</b> Within's delivery lead, on a consulting partner's work, before the controller readout.</p>
-<p>Within co-delivers through consulting partners. The partner's consultants run the discovery sprint for a customer, and Within's delivery lead holds what they produce to Within's standard before it reaches the customer's controller. This is that check. It reads the partner's process map, ranked fixes and sign-off record for a 30-day month-end close sprint, checks them against the close calendar, and returns a verdict, a send-back list for the partner, and the fixes ranked by hours saved per unit of effort. Partners can also run it on their own work before handing it over.</p>
-<p class="muted">The scenario follows my 30-day close sprint plan: a corporate close plus an acquired business's close. All data is synthetic: 38 calendar tasks, a partner draft with 9 planted problems, and the same deliverable after the partner fixes them. <a href="https://github.com/pg2342-hub/partner-deliverable-qa">Code on GitHub</a>.</p>
+<p>Within co-delivers through consulting partners: the partner's team runs a 30-day discovery sprint on a customer's month-end close, and Within's delivery lead makes sure their work meets Within's standard before it reaches the customer's controller. This page is that check. Partners can also run it on their own work before handing it over.</p>
+<p style="margin-top:12px"><b>How to read it</b></p>
+<ol class="how">
+<li>Pick a version below: the partner's first draft, or the same work after the partner fixed it.</li>
+<li>The verdict says whether it is ready for the controller.</li>
+<li>If not, "What goes back to the partner" lists each problem in plain words.</li>
+</ol>
 
 <div class="btns">
-  <button data-k="partner_draft" class="on">Partner draft</button>
+  <button data-k="partner_draft" class="on">Partner's first draft</button>
   <button data-k="after_fixes">After the partner's fixes</button>
 </div>
+<div id="verdict"></div>
 <div class="tiles" id="tiles"></div>
 
-<h2>Checks</h2>
-<div class="wrap"><table><thead><tr><th>Check</th><th>Standard</th><th>Result</th></tr></thead><tbody id="checks"></tbody></table></div>
+<div id="sendwrap">
+<h2>What goes back to the partner</h2>
+<div id="send"></div>
+</div>
 
-<h2>Send back to the partner</h2>
-<ul class="send" id="send"></ul>
+<h2>The 8 checks</h2>
+<p class="muted small">All 8 must pass before the work goes to the controller.</p>
+<ul class="checks" id="checks"></ul>
 
-<h2>Fixes ranked by hours saved per unit of effort</h2>
-<div class="wrap"><table><thead><tr><th>#</th><th>Fix</th><th>Effort</th><th>Owner</th><th>Hours counted / close</th><th>Value per year</th><th>Note</th></tr></thead><tbody id="fixes"></tbody></table></div>
-<p class="muted">Value per year = hours counted × 12 closes × $40.23/hr (BLS median accountant pay of $83,680, base only). It is team time handed back, not budget saved. A claim larger than the mapped hours is capped at the mapped hours.</p>
+<h2>Fixes, best value for the effort first</h2>
+<p class="muted small">The partner's proposed fixes, ranked by hours saved per close divided by effort (small counts 1, medium 2, large 3). If a fix claims more hours than its steps take, only the mapped hours count.</p>
+<div class="wrap"><table><thead><tr><th>Rank</th><th>Fix</th><th>Effort</th><th>Owner</th><th>Hours saved per close</th><th>Value per year</th></tr></thead><tbody id="fixes"></tbody></table></div>
+<p class="muted small">Value per year = hours saved × 12 closes × $40.23 an hour (BLS median accountant pay of $83,680, base only). It is team time handed back, not budget saved.</p>
 
-<details><summary>The process map being checked</summary>
-<div class="wrap" style="margin-top:8px"><table><thead><tr><th>Step</th><th>Task</th><th>Business</th><th>What happens</th><th>Owner</th><th>System</th><th>Days</th><th>Hours</th><th>Note</th></tr></thead><tbody id="map"></tbody></table></div>
+<details><summary>See the partner's process map</summary>
+<p class="muted small">Every step of the close the partner mapped, for corporate and the acquired business.</p>
+<div class="wrap" style="margin-top:8px"><table><thead><tr><th>Business</th><th>Step</th><th>Owner</th><th>System</th><th>Business days</th><th>Hours</th><th>Note</th></tr></thead><tbody id="map"></tbody></table></div>
 </details>
 
-<footer>Built by Pranav Gudise. Run it yourself: <code>python qa.py</code> (Python 3.9+, standard library only).</footer>
+<footer>All data is synthetic and follows my 30-day close sprint plan: a corporate close plus an acquired business's close, 38 calendar tasks. Built by Pranav Gudise. <a href="https://github.com/pg2342-hub/partner-deliverable-qa">Code on GitHub</a>.</footer>
 </main>
 <script>
 /*DATA*/
 const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const miss='<b>missing</b>';
+const days=s=>s.start_business_day===s.end_business_day?`Day ${esc(s.start_business_day)}`:`Days ${esc(s.start_business_day)}–${esc(s.end_business_day)}`;
 function render(k){
   const r=DATA[k];
   document.querySelectorAll("button[data-k]").forEach(b=>b.classList.toggle("on",b.dataset.k===k));
-  const passed=r.checks.filter(c=>c.passed).length;
-  const cov=Object.entries(r.coverage).map(([u,c])=>`<div class="tile ${c.share<0.9?'fail':''}"><div class="n">${c.mapped} of ${c.total}</div><div class="l">${esc(u)}: close tasks mapped (${Math.round(c.share*100)}%, bar is 90%)</div></div>`).join("");
-  document.getElementById("tiles").innerHTML=
-    `<div class="tile ${r.ready?'':'fail'}"><div class="n">${r.ready?'Readout-ready':'Send back'}</div><div class="l">Verdict</div></div>`+
-    `<div class="tile"><div class="n">${passed} of ${r.checks.length}</div><div class="l">Checks passed</div></div>`+cov;
-  document.getElementById("checks").innerHTML=r.checks.map(c=>`<tr><td>${c.id} ${esc(c.name)}</td><td>${esc(c.standard)}</td><td class="res">${c.passed?'PASS':'FAIL'}</td></tr>`).join("");
-  const items=r.checks.flatMap(c=>c.issues.map(i=>`<li><b>${c.id}</b> ${esc(i)}</li>`));
-  document.getElementById("send").innerHTML=items.length?items.join(""):"<li>Nothing. The deliverable meets the standard and can go to the controller.</li>";
-  document.getElementById("fixes").innerHTML=r.ranked_fixes.map((f,n)=>`<tr><td>${n+1}</td><td>${f.fix_id} ${esc(f.fix)}</td><td>${esc(f.effort||'?')}</td><td>${esc(f.owner)||'<b>missing</b>'}</td><td>${f.counted_hours}</td><td>$${f.annual_value.toLocaleString()}</td><td>${f.claimed_hours>f.mapped_hours?`claimed ${f.claimed_hours}, capped`:''}</td></tr>`).join("");
-  document.getElementById("map").innerHTML=r.steps.map(s=>`<tr><td>${esc(s.step_id)}</td><td>${esc(s.task_id)}</td><td>${esc(s.unit)}</td><td>${esc(s.step)}</td><td>${esc(s.owner_role)||'<b>missing</b>'}</td><td>${esc(s.system)||'<b>missing</b>'}</td><td>BD${esc(s.start_business_day)}–${esc(s.end_business_day)}</td><td>${esc(s.hands_on_hours)}</td><td>${esc(s.exception_notes)}</td></tr>`).join("");
+  const passed=r.checks.filter(c=>c.passed).length, n=r.issue_count;
+  document.getElementById("verdict").innerHTML=r.ready
+    ?`<div class="verdict"><div class="big">Ready for the controller</div><div>All ${r.checks.length} checks pass. Nothing goes back to the partner.</div></div>`
+    :`<div class="verdict fail"><div class="big">Send back to the partner</div><div>${n} problem${n===1?'':'s'} to fix. ${passed} of ${r.checks.length} checks pass.</div></div>`;
+  document.getElementById("tiles").innerHTML=Object.entries(r.coverage).map(([u,c])=>
+    `<div class="tile ${c.share<0.9?'fail':''}"><div class="n">${c.mapped} of ${c.total} tasks mapped</div><div class="l">${esc(u)} close (${Math.round(c.share*100)}%, needs 90%)</div></div>`).join("");
+  const failed=r.checks.filter(c=>c.issues.length);
+  document.getElementById("sendwrap").style.display=failed.length?"":"none";
+  document.getElementById("send").innerHTML=failed.map(c=>`<div class="group"><h3>${esc(c.name)}</h3><ul>${c.issues.map(i=>`<li>${esc(i)}</li>`).join("")}</ul></div>`).join("");
+  document.getElementById("checks").innerHTML=r.checks.map(c=>`<li><span class="mark">${c.passed?'✓ Pass':'✗ Fail'}</span><span><b>${esc(c.name)}</b><br><span class="muted small">${esc(c.standard)}</span></span></li>`).join("");
+  document.getElementById("fixes").innerHTML=r.ranked_fixes.map((f,i)=>`<tr><td>${i+1}</td><td>${esc(f.fix)}</td><td>${esc(f.effort_label)||miss}</td><td>${esc(f.owner)||miss}</td><td>${f.counted_hours}${f.claimed_hours>f.mapped_hours?` <span class="muted">(claimed ${f.claimed_hours})</span>`:''}</td><td>$${f.annual_value.toLocaleString()}</td></tr>`).join("");
+  document.getElementById("map").innerHTML=r.steps.map(s=>`<tr><td>${esc(s.unit)}</td><td>${esc(s.step)}</td><td>${esc(s.owner_role)||miss}</td><td>${esc(s.system)||miss}</td><td>${days(s)}</td><td>${esc(s.hands_on_hours)}</td><td>${esc(s.exception_notes)}</td></tr>`).join("");
 }
 document.querySelectorAll("button[data-k]").forEach(b=>b.onclick=()=>render(b.dataset.k));
 render("partner_draft");
