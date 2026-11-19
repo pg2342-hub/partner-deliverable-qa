@@ -1,0 +1,39 @@
+task_id,unit,task,owner_role,due_business_day
+T01,Corporate,AP subledger cutoff,AP lead,1
+T02,Corporate,Accrue unbilled AP,Senior accountant,1
+T03,Corporate,Bank reconciliations,Staff accountant,2
+T04,Corporate,Corporate card reconciliation,Staff accountant,2
+T05,Corporate,Payroll accrual,Payroll accountant,1
+T06,Corporate,Bonus and commission accrual,Senior accountant,2
+T07,Corporate,Subscription revenue review,Revenue accountant,2
+T08,Corporate,Deferred revenue rollforward,Revenue accountant,3
+T09,Corporate,Prepaid amortization,Staff accountant,2
+T10,Corporate,Fixed asset depreciation,Staff accountant,2
+T11,Corporate,Intercompany reconciliation,Senior accountant,3
+T12,Corporate,FX revaluation,Senior accountant,3
+T13,Corporate,Lease accounting entries,Senior accountant,3
+T14,Corporate,Capitalized software entries,Senior accountant,3
+T15,Corporate,Accrued expenses review,Senior accountant,3
+T16,Corporate,Balance sheet reconciliations,Accounting manager,4
+T17,Corporate,Flux analysis and commentary,Accounting manager,4
+T18,Corporate,Consolidation,Accounting manager,5
+T19,Corporate,Elimination entries,Accounting manager,5
+T20,Corporate,Management reporting pack,Controller,6
+T21,Corporate,Controller review,Controller,6
+T22,Corporate,Tax provision estimate,Tax manager,5
+T23,Corporate,Close checklist sign-off,Controller,7
+T24,Corporate,Cash forecast update,FP&A analyst,4
+A01,Acquired unit,AP cutoff,Unit accountant,1
+A02,Acquired unit,Accrue unbilled AP,Unit accountant,2
+A03,Acquired unit,Bank reconciliations,Unit accountant,2
+A04,Acquired unit,Payroll accrual,Unit accountant,2
+A05,Acquired unit,Usage billing true-up,Unit billing lead,3
+A06,Acquired unit,Inventory count reconciliation,Unit accountant,3
+A07,Acquired unit,Fixed asset depreciation,Unit accountant,3
+A08,Acquired unit,Intercompany with corporate,Unit controller,3
+A09,Acquired unit,Accrued expenses review,Unit accountant,3
+A10,Acquired unit,Balance sheet reconciliations,Unit controller,4
+A11,Acquired unit,Flux analysis,Unit controller,4
+A12,Acquired unit,Reporting package to corporate,Unit controller,4
+A13,Acquired unit,Local controller review,Unit controller,5
+A14,Acquired unit,Close checklist sign-off,Unit controller,5
