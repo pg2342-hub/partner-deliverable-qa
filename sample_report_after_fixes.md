@@ -2,14 +2,14 @@
 
 **Verdict: READOUT-READY** (8 of 8 checks pass, 0 issues)
 
-- Acquired unit coverage: 14 of 14 tasks (100%)
+- Acquired business coverage: 14 of 14 tasks (100%)
 - Corporate coverage: 23 of 24 tasks (96%)
 
 ## Checks
 
 | Check | Standard | Result |
 |---|---|---|
-| C1 Coverage | At least 90% of close-calendar tasks mapped, in each unit | PASS |
+| C1 Coverage | At least 90% of close-calendar tasks mapped, for corporate and the acquired business separately | PASS |
 | C2 Complete steps | Every step has an owner, a system, start and end day, and hands-on hours | PASS |
 | C3 Timing vs calendar | No step ends after its task's due day unless the map says why | PASS |
 | C4 Steps tie to the calendar | Every step belongs to a task on the close calendar | PASS |
@@ -24,7 +24,7 @@
 |---|---|---|---|---|---|
 | 1 | F2 One accrual template for both units | S | 14 | $6,759 |  |
 | 2 | F1 Auto-match bank lines before reconciliation | M | 12 | $5,793 |  |
-| 3 | F5 Acquired unit sends trial balance as a file, not a PDF | S | 6 | $2,897 |  |
+| 3 | F5 Acquired business sends trial balance as a file, not a PDF | S | 6 | $2,897 |  |
 | 4 | F3 Agent drafts intercompany matches for review | M | 10 | $4,828 |  |
 | 5 | F4 Draft flux commentary from prior-month notes | M | 7 | $3,379 |  |
 

@@ -1,6 +1,6 @@
 fix_id,fix,step_ids,hours_saved_per_close,effort,owner_role,evidence
 F1,Auto-match bank lines before reconciliation,S-T03;S-A03,12,M,Accounting manager,"Map: 16 hands-on hours across both units, mostly manual line matching"
-F2,One accrual template for both units,S-T02;S-T15;S-A02;S-A09,30,S,Senior accountant,Map: two different accrual workbooks; acquired unit rebuilds its template each month
+F2,One accrual template for both units,S-T02;S-T15;S-A02;S-A09,30,S,Senior accountant,Map: two different accrual workbooks; acquired business rebuilds its template each month
 F3,Agent drafts intercompany matches for review,S-T11;S-A08;S-A99,10,M,Senior accountant,"Map: 17 hours, mismatches found by email back-and-forth"
 F4,Draft flux commentary from prior-month notes,S-T17;S-A11,7,M,Accounting manager,Map: commentary rewritten from scratch each month
-F5,"Acquired unit sends trial balance as a file, not a PDF",S-A12;S-T18a,6,S,,Map: unit TB rekeyed by hand into consolidation
+F5,"Acquired business sends trial balance as a file, not a PDF",S-A12;S-T18a,6,S,,Map: unit TB rekeyed by hand into consolidation

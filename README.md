@@ -10,7 +10,7 @@ Within co-delivers through consulting partners. The partner's consultants run th
 
 | Check | Standard |
 |---|---|
-| C1 Coverage | At least 90% of close-calendar tasks mapped, in each unit |
+| C1 Coverage | At least 90% of close-calendar tasks mapped, for corporate and the acquired business separately |
 | C2 Complete steps | Every step has an owner, a system, start and end day, and hands-on hours |
 | C3 Timing vs calendar | No step ends after its task's due day unless the map says why |
 | C4 Steps tie to the calendar | Every step belongs to a task on the close calendar |
@@ -33,7 +33,7 @@ python -m unittest discover -s tests
 python docs/build_page.py                 # rebuild the demo page
 ```
 
-On the partner draft, all 9 planted problems are flagged and 0 of 8 checks pass: the acquired unit is only 71% mapped (4 tasks missing), two steps lack an owner or system, one step runs past its due day with no reason, one step points at a task that is not on the calendar, there is no record of the close manager confirming the map, one fix points at a step that does not exist, one fix claims 30 hours saved where its steps total 23, and one fix has no owner. After the fixes, 8 of 8 pass. See `sample_report.md` and `sample_report_after_fixes.md`.
+On the partner draft, all 9 planted problems are flagged and 0 of 8 checks pass: the acquired business is only 71% mapped (4 tasks missing), two steps lack an owner or system, one step runs past its due day with no reason, one step points at a task that is not on the calendar, there is no record of the close manager confirming the map, one fix points at a step that does not exist, one fix claims 30 hours saved where its steps total 23, and one fix has no owner. After the fixes, 8 of 8 pass. See `sample_report.md` and `sample_report_after_fixes.md`.
 
 ## Your own deliverable
 
@@ -45,4 +45,4 @@ Put three files in a folder and pass `--data` (and `--calendar` for your own clo
 
 ## Data and numbers
 
-All data is synthetic: a 38-task close calendar for a corporate entity plus an acquired business unit, written to follow the structure of my 30-day close sprint plan. No customer data. Value per year = hours counted × 12 closes × $40.23/hr, the BLS median accountant pay of $83,680 divided by 2,080 hours, base pay only. It is team time handed back, not budget saved.
+All data is synthetic: a 38-task close calendar for a corporate entity plus an acquired business, written to follow the structure of my 30-day close sprint plan. No customer data. Value per year = hours counted × 12 closes × $40.23/hr, the BLS median accountant pay of $83,680 divided by 2,080 hours, base pay only. It is team time handed back, not budget saved.

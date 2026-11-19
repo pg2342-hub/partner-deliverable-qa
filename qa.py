@@ -21,7 +21,7 @@ EFFORT_WEIGHT = {"S": 1, "M": 2, "L": 3}
 REQUIRED_STEP_FIELDS = ["owner_role", "system", "start_business_day", "end_business_day", "hands_on_hours"]
 
 CHECKS = [
-    ("C1", "Coverage", "At least 90% of close-calendar tasks mapped, in each unit"),
+    ("C1", "Coverage", "At least 90% of close-calendar tasks mapped, for corporate and the acquired business separately"),
     ("C2", "Complete steps", "Every step has an owner, a system, start and end day, and hands-on hours"),
     ("C3", "Timing vs calendar", "No step ends after its task's due day unless the map says why"),
     ("C4", "Steps tie to the calendar", "Every step belongs to a task on the close calendar"),

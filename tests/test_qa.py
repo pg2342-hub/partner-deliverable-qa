@@ -29,7 +29,7 @@ class PartnerDraft(unittest.TestCase):
         msg = self.by["C1"]["issues"][0]
         for tid in ("A05", "A06", "A07", "A13"):
             self.assertIn(tid, msg)
-        self.assertEqual(self.r["coverage"]["Acquired unit"]["mapped"], 10)
+        self.assertEqual(self.r["coverage"]["Acquired business"]["mapped"], 10)
 
     def test_overclaimed_savings_are_capped(self):
         f2 = next(f for f in self.r["ranked_fixes"] if f["fix_id"] == "F2")
